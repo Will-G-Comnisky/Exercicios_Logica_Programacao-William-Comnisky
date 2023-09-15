@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <label for="name">Qual é o seu nome?</label>
+    <input type="text" name="name" id="idName" value="">
+    <input type="button" value="Registrar" onclick="helloFunc()">
+
+    <label for="saida"></label>
+    <output type="text" name="saida" id="idSaida">
+
+    <script>
+        
+        const helloFunc = () => {
+            let nome = document.getElementById('idName').value;
+            let saida = document.getElementById('idSaida').value = 'Olá ' + nome + ', é um prazer te conhecer';
+            alert(saida) 
+        }
+
+    </script>
+</body>
+</html>
