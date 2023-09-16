@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <label for="num1">Digite um valor em metros: </label>
+    <input type="number" name="num1" id="idNum1">
+    <br><br>
+
+    <input type="button" value="Converter" id="idConvert" onclick="convertValue()">
+    <br><br>
+
+    <output type="text" name='saida' id="idSaida"></output>
+    <br>
+    <output type="text" name='km' id="idKm"></output>
+    <br>
+    <output type="text" name='hm' id="idHm"></output>
+    <br>
+    <output type="text" name='dam' id="idDam"></output>
+    <br>
+    <output type="text" name='dm' id="idDm"></output>
+    <br>
+    <output type="text" name='cm' id="idCm"></output>
+    <br>
+    <output type="text" name='mm' id="idMm"></output>
+
+    <script>
+        const convertValue = () => {
+            let num1 = parseFloat(document.getElementById('idNum1').value);
+            let numKm = num1 / 1000;
+            let numHm = num1 / 100;
+            let numDam = num1 / 10;
+            let numDm = num1  * 10;
+            let numCm = num1 * 100;
+            let numMm = num1 * 1000;
+            
+            document.getElementById('idSaida').value = 'O valor de ' + num1 + 'm corresponde a:';
+            document.getElementById('idKm').value = numKm + ' Km';
+            document.getElementById('idHm').value = numHm + ' Hm';
+            document.getElementById('idDam').value = numDam + ' Dam';
+            document.getElementById('idDm').value = numDm + ' dm';
+            document.getElementById('idCm').value = numCm + ' cm';
+            document.getElementById('idMm').value = numMm + ' mm';
+        }
+    </script> 
+</body>
+</html>
