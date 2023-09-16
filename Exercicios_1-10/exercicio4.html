@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <label for="num1">Digite a primeira nota: </label>
+    <input type="number" name="num1" id="idNum1">
+    <br><br>
+    <label for="num2">Digite a segunda nota:</label>
+    <input type="number" name="num2" id="idNum2">
+    <br><br>
+    <input type="button" value="Calcular" id="idCalcular" onclick="calcular()">
+    <br><br>
+    <output type="text" name='saida' id="idResultado"/>
+
+    <script>
+        const calcular = () => {
+            let num1 = parseFloat(document.getElementById('idNum1').value);
+            let num2 = parseFloat(document.getElementById('idNum2').value);
+            let resultado = (num1 + num2)/2;
+            document.getElementById('idResultado').value = 'A média entre ' + num1 + ' e '+ num2 + ' é: ' + resultado;
+        }
+    </script> 
+</body>
+</html>
