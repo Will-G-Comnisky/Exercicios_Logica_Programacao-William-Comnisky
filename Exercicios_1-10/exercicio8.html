@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+<body>
+    <label for="num1">Valor que você tem em carteira em R$: </label>
+    <input type="number" name="num1" id="idNum1">
+    <br><br>
+
+    <input type="button" value="Verificar" id="idCheck" onclick="checkInDollars()">
+    <br><br>
+
+    <output type="text" name='inDollars' id="idInDollars"></output>
+
+    <script>
+        const checkInDollars = () => {
+            let num1 = parseFloat(document.getElementById('idNum1').value).toFixed(2);
+            let dollars = parseFloat(num1 / 3.45).toFixed(2);
+            
+            document.getElementById('idInDollars').value = 'Com R$ ' + num1 + ' você consegue comprar ' + dollars + ' dólares';
+        }
+    </script> 
+</body>
+</html>
