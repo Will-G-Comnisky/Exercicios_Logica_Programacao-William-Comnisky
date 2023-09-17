@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+<body>
+    <label for="price"> Informe o valor do produto: </label>
+    <input type="number" name="price" id="idPrice">
+    <br><br>
+
+    <input type="button" value="Aplicar desconto" id="idCheck" onclick="applyDiscount()">
+    <br><br>
+
+    <output type="text" name='offPrice' id="idOffPrice"></output>
+
+    <script>
+        const applyDiscount = () => {
+            let price = parseFloat(document.getElementById('idPrice').value).toFixed(2);
+            discount = price * 0.05;
+            let offPrice = (price - discount).toFixed(2);
+            
+            document.getElementById('idOffPrice').value = 'Aproveite o PREÇO PROMOCIONAL de R$ ' + price + ', por apenas R$ ' + offPrice;
+        }
+    </script> 
+</body>
+</html>
