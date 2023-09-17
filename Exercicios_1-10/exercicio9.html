@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    <label for="width"> Informe a largura da parede: </label>
+    <input type="number" name="width" id="idWidth">
+    <br><br>
+    <label for="height"> Informe a altura da parede: </label>
+    <input type="number" name="height" id="idHeight">
+    <br><br>
+    <input type="button" value="Calcular" id="idCalcular" onclick="calcular()">
+    <br><br>
+    <output type="text" name="area" id="idArea"></output>
+    <br>
+    <output type="text" name="tinta" id="idTinta"></output>
+
+    <script>
+        const calcular = () => {
+            let width = parseFloat(document.getElementById('idWidth').value);
+            let height = parseFloat(document.getElementById('idHeight').value);
+            let area = parseFloat(height * width);
+            let tinta = parseFloat(area / 2)
+
+            document.getElementById('idArea').value = 'A parede possui ' + area + ' m²';
+            document.getElementById('idTinta').value = 'Será necessário ' + tinta + " litros de tinta";
+
+
+        }
+    </script>
+    
+</body>
+</html>
