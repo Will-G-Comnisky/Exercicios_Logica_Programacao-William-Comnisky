@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+    <div>
+
+        <h2>Verificando se um número está no intervalo de 30 a 90 ou não.</h2>
+        <label for="num">Informe um valor numérico: </label>
+        <input type="number" name="num" id="idNum">
+        <br><br>
+
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+    <script>
+        const verificar = () => {
+            let num = parseFloat(document.getElementById('idNum').value);
+            if (num >= 30 && num <= 90) {
+                document.getElementById('idResultado').value = 'O valor inserido está entre 30 e 90'
+            } else if (num < 30) {
+                document.getElementById('idResultado').value = 'O valor inserido não está no intervalo e é menor que 30'
+        } else {
+            document.getElementById('idResultado').value = 'O valor inserido não está no intervalo e é maior que 90'
+        }
+    }
+    </script>
+</body>
+</html>
