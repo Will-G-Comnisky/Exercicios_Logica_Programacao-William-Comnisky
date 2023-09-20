@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+<body>
+    <div>
+
+        <label for="num1">Informe o primeiro valor: </label>
+        <input type="number" name="num1" id="idNum1">
+        <br><br>
+        <label for="num2">Informe o segundo valor: </label>
+        <input type="number" name="num2" id="idNum2">
+        <br><br>
+        <label for="num3">Informe o terceiro valor: </label>
+        <input type="number" name="num3" id="idNum3">
+        <br><br>
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+    <script>
+        const verificar = () => {
+            let num1 = parseFloat(document.getElementById('idNum1').value);
+            let num2 = parseFloat(document.getElementById('idNum2').value);
+            let num3 = parseFloat(document.getElementById('idNum3').value);
+
+            if (num1 > num2 && num1 > num3) {
+                document.getElementById('idResultado').value = 'O primeiro valor ( '+ num1 + ' ) é maior que os outros dois valores'
+            } else if (num2 > num1 && num2 > num3) {
+                document.getElementById('idResultado').value = 'O segundo valor ( '+ num2 + ' ) é maior que os outros dois valores'
+            } else if (num3 > num1 && num3 > num2) {
+            document.getElementById('idResultado').value = 'O terceiro valor ( '+ num3 + ' ) é maior que os outros dois valores'
+            } else {
+                document.getElementById('idResultado').value = 'Não há um valor maior porque existem números iguais'
+            }
+    }
+    </script>
+</body>
+</html>
