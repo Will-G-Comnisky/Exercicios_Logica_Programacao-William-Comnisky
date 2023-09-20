@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 16</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+
+        .operadores, input, output {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .calculadora {
+            display: block;
+            max-width: 400px;
+            align-items: center;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        input {
+            margin: 10px 0;
+        }
+    </style>
+
+    <div class="calculadora">
+
+        <label for="num1">Informe o primeiro valor numérico: </label>
+        <input type="number" name="num1" id="idNum1">
+        <br><br>
+        <label for="num2">Informe o segundo valor numérico: </label>
+        <input type="number" name="num2" id="idNum2">
+        <br><br>
+        <label for="operador">Informe o operador aritmético: </label>
+        <br><br>
+        <input type="radio" value="soma" name="operador" id="idSoma">
+        <label for="soma" class="operadores">  + </label>
+        <br><br>
+        <input type="radio" value="subtracao" name="operador" id="idSubtracao">
+        <label for="subtracao" class="operadores">  - </label>
+        <br><br>
+        <input type="radio" value="multiplicar" name="operador" id="idMultiplicar">
+        <label for="multiplicar" class="operadores">  * </label>
+        <br><br>
+        <input type="radio" value="divisao" name="operador" id="idDivisao">
+        <label for="divisao" class="operadores">  / </label>
+        <br><br>
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+    <script>
+        const verificar = () => {
+            let num1 = parseFloat(document.getElementById('idNum1').value);
+            let num2 = parseFloat(document.getElementById('idNum2').value);
+            let soma = document.getElementById('idSoma').checked;
+            let subtracao = document.getElementById('idSubtracao').checked;
+            let multiplicacao = document.getElementById('idMultiplicar').checked;
+            let divisao = document.getElementById('idDivisao').checked;
+
+            if (soma) {
+                document.getElementById('idResultado').innerHTML = 'O resultado é: ' + Number(num1 + num2);
+            } else if (subtracao) {
+                document.getElementById('idResultado').innerHTML = 'O resultado é: ' + Number(num1 - num2);
+            } else if (multiplicacao) {
+                document.getElementById('idResultado').innerHTML = 'O resultado é: ' + num1 * num2;
+            } else if (divisao) {
+                if (num2 !== 0) {
+                    document.getElementById('idResultado').innerHTML = 'O resultado é: ' + num1 / num2;
+                } else {
+                    document.getElementById('idResultado').innerHTML = 'Divisão por zero não é permitida.';
+                }
+            } else {
+                document.getElementById('idResultado').innerHTML = 'Os dados estão incorretas ou não são calculáveis neste modelo'
+            }
+
+    }
+    </script>
+</body>
+</html>
