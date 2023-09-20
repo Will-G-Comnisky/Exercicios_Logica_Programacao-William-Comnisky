@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 15</title>
+</head>
+<body>
+    <div>
+
+        <label for="num1">Informe o primeiro valor numérico: </label>
+        <input type="number" name="num1" id="idNum1">
+        <br><br>
+        <label for="num2">Informe o segundo valor numérico: </label>
+        <input type="number" name="num2" id="idNum2">
+        <br><br>
+        <label for="num3">Informe o terceiro valor numérico: </label>
+        <input type="number" name="num3" id="idNum3">
+        <br><br>
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado1" id="idResultado1" ></output>
+        <output type="text" name="resultado2" id="idResultado2" ></output>
+        <output type="text" name="resultado3" id="idResultado3" ></output>
+        
+    </div>
+
+    <script>
+        const verificar = () => {
+            let num1 = parseFloat(document.getElementById('idNum1').value);
+            let num2 = parseFloat(document.getElementById('idNum2').value);
+            let num3 = parseFloat(document.getElementById('idNum3').value);
+
+            let maiorNr, menorNr, medio
+
+            if ( num1 < num2 && num1 < num3) {
+                menorNr = num1
+            } else if ( num2 < num3 && num2 < num1) {
+                menorNr = num2
+            } else {
+                menorNr = num3
+            }
+
+            if ((num1 > num2 && num1 < num3) || (num1 < num2 && num1 > num3)) {
+                medio = num1;
+            } else if ((num2 > num1 && num2 < num3) || (num2 < num1 && num2 > num3)) {
+                medio = num2;
+            } else {
+                medio = num3;
+            }
+
+            if ( num1 > num2 && num1 > num3) {
+                maiorNr = num1
+            } else if ( num2 > num3 && num2 > num1) {
+                maiorNr = num2
+            } else {
+                maiorNr = num3
+            }
+
+            document.getElementById('idResultado1').innerHTML = maiorNr + ' -> ';
+            document.getElementById('idResultado2').innerHTML = medio + ' -> ';
+            document.getElementById('idResultado3').innerHTML = menorNr;
+    }
+    </script>
+</body>
+</html>
