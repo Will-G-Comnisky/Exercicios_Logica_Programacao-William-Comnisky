@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 17</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+    <div>
+
+        <h2>Verificando seu salário líquido</h2>
+        <label for="salary">Informe o valor de seu salário bruto: </label>
+        <input type="number" name="salary" id="idSalary" placeholder="Ex: 2500">
+        <br><br>
+
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+    <script>
+        const verificar = () => {
+            let salary = parseFloat(document.getElementById('idSalary').value);
+            let salary25 = parseFloat(document.getElementById('idSalary').value * 0.75);
+            let salary30 = parseFloat(document.getElementById('idSalary').value * 0.70);
+            let salary35 = parseFloat(document.getElementById('idSalary').value * 0.65);
+            if (salary <= 600) {
+                document.getElementById('idResultado').value = 'Seu salário não possui descontos. Salário líquido é igual a R$ ' + salary;
+            } else if (salary > 600 && salary <= 1200) {
+                document.getElementById('idResultado').value = '25% de INSS é descontado, seu salário líquido é igual a R$ ' + salary25;
+        } else if (salary > 1200 && salary <= 2000) {
+                document.getElementById('idResultado').value = '30% de INSS é descontado, seu salário líquido é igual a R$ ' + salary30;
+        } else if (salary > 2000) {
+                document.getElementById('idResultado').value = '35% de INSS é descontado, seu salário líquido é igual a R$ ' + salary35;
+        } else {
+            document.getElementById('idResultado').value = 'Algum dado está incorreto. Tente novamente'
+        }
+    }
+    </script>
+</body>
+</html>
