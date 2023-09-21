@@ -22,12 +22,14 @@
     <script>
         const verificar = () => {
             let num = parseFloat(document.getElementById('idNum').value);
+            let out = document.getElementById('idResultado').value
+
             if (num > 20) {
-                document.getElementById('idResultado').value = 'O valor inserido é MAIOR que 20'
+                out = 'O valor inserido é MAIOR que 20'
             } else if (num < 20) {
-                document.getElementById('idResultado').value = 'O valor inserido é MENOR que 20'
+                out = 'O valor inserido é MENOR que 20'
         } else {
-            document.getElementById('idResultado').value = 'O valor inserido é IGUAL a 20'
+            out = 'O valor inserido é IGUAL a 20'
         }
     }
     </script>
