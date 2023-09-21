@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 20</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div {
+            max-width: 240px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+
+        }
+        input, label {
+            margin: 5px 0 5px;
+            padding: 8px;
+        }
+        p {
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        output {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+
+    <div>
+
+        <label for="userID">Informe o seu usuário: </label>
+        <input type="text" name="userID" id="idUserID">
+        <br>
+        <label for="password">Informe sua senha: </label>
+        <input type="password" name="password" id="idPassword">
+        <br><br>
+
+        <input type="button" value="Acessar" onclick="loginCheck()">
+        <br><br>
+        <output type="text" name="resposta" id="idResposta" ></output>
+
+        
+    </div>
+
+    <script>
+        const loginCheck = () => {
+
+            const loginUser1 = 'Aluno1';
+            const passwordUser1 = 'Trocar123'
+
+            const loginUser2 = 'Aluno2';
+            const passwordUser2 = 'Senha@123'
+
+            const loginUser3 = 'Aluno3';
+            const passwordUser3 = '123Trocar'
+
+            let user = document.getElementById('idUserID').value;
+            let password = document.getElementById('idPassword').value;
+
+            if ((user === loginUser1 && password === passwordUser1) ||
+                (user === loginUser2 && password === passwordUser2) ||
+                (user === loginUser3 && password === passwordUser3)) {
+                document.getElementById('idResposta').textContent = 'Acesso permitido';
+            } else if (user !== loginUser1 && user !== loginUser2 && user !== loginUser3) {
+                document.getElementById('idResposta').textContent = 'Usuário não cadastrado';
+            } else if ((user === loginUser1 || user === loginUser2 || user === loginUser3) && 
+                    (password !== passwordUser1 && password !== passwordUser2 && password !== passwordUser3)) {
+                document.getElementById('idResposta').textContent = 'Senha incorreta';
+            }
+
+
+            
+    }
+    </script>
+</body>
+</html>
