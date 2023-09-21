@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 19</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div {
+            margin-left: 10px;
+        }
+        input, label {
+            margin: 5px 0 5px;
+        }
+        p {
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        output {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+
+    <div>
+
+        <h2>Calculando áreas de formas geométricas </h2>
+        <p> Para um Círculo </p>
+        <label for="circle">Informe o raio do círculo (cm): </label>
+        <input type="number" name="circle" id="idCircle">
+        <br>
+        <input type="button" value="Calcular área" onclick="calcCircle()">
+        <br><br>
+        <output type="text" name="circleResult" id="idCircleResult" ></output>
+        <br><br>
+
+        <p> Para um Retângulo </p>
+        <label for="retBase">Informe o valor da base (cm): </label>
+        <input type="number" name="retBase" id="idRetBase">
+        <br>
+        <label for="retAltura">Informe o valor da altura (cm): </label>
+        <input type="number" name="retAltura" id="idRetAltura">
+        <br>
+        <input type="button" value="Calcular área" onclick="calcRet()">
+        <br><br>
+        <output type="text" name="RetResult" id="idRetResult" ></output>
+        <br><br>
+
+        <p> Triângulo Retângulo </p>
+        <label for="triangRetB">Informe o valor da base (cm): </label>
+        <input type="number" name="triangRetB" id="idTriangRetB">
+        <br>
+        <label for="triangRetAlt">Informe o valor da altura (cm): </label>
+        <input type="number" name="triangRetAlt" id="idTriangRetAlt">
+        <br>
+        <input type="button" value="Calcular área" onclick="calcTriangRet()">
+        <br><br>
+        <output type="text" name="triangRetResult" id="idTriangRetResult" ></output>
+        <br><br>
+
+        <p> Triângulo Equilátero </p>
+        <label for="triangEq">Informe o valor de um lado (cm): </label>
+        <input type="number" name='triangEq' id="idTriangEq">
+        <br>
+        <input type="button" value="Calcular área" onclick="calcTriangEq()">
+        <br><br>
+        <output type="text" name="triangEqResult" id="idTriangEqResult" ></output>
+        <br><br>
+
+
+        
+    </div>
+
+    <script>
+        const calcCircle = () => {
+            let circleRadius = parseFloat(document.getElementById('idCircle').value);
+
+            document.getElementById('idCircleResult').value = 'A área desta forma geométrica é igual a: ' + parseFloat((circleRadius ** 2) * Math.PI).toFixed(2) + ' cm²';
+    }
+
+    const calcRet = () => {
+            let retBase = document.getElementById('idRetBase').value;
+            let retAltura = document.getElementById('idRetAltura').value;
+
+            document.getElementById('idRetResult').value = 'A área desta forma geométrica é igual a: ' + parseFloat((retAltura * retBase)).toFixed(2) + ' cm²';
+        }
+
+        const calcTriangRet = () => {
+            triangRetBase = document.getElementById('idTriangRetB').value;
+            triangRetAltura = document.getElementById('idTriangRetAlt').value;
+
+            document.getElementById('idTriangRetResult').value = 'A área desta forma geométrica é igual a: ' + parseFloat( (triangRetAltura * triangRetBase) / 2).toFixed(2) + ' cm²'
+        }
+
+        const calcTriangEq = () => {
+            let triangEqL = document.getElementById('idTriangEq').value;
+
+            document.getElementById('idTriangEqResult').value = 'A área desta forma geométrica é igual a: ' + parseFloat(Math.pow(triangEqL, 2) * Math.sqrt(3) / 4).toFixed(2) + ' cm²';
+        }
+    </script>
+</body>
+</html>
