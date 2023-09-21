@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 18</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+    <div>
+
+        <h2>Verificando seu melhor preço de venda </h2>
+        <label for="product">Informe o valor do produto: </label>
+        <input type="number" name="product" id="idProduct">
+        <br><br>
+
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+    <script>
+        const verificar = () => {
+            let product = parseFloat(document.getElementById('idProduct').value);
+            let product50 = parseFloat(document.getElementById('idProduct').value * 1.5);
+            let product35 = parseFloat(document.getElementById('idProduct').value * 1.35);
+
+            if (product <= 20) {
+                document.getElementById('idResultado').value = 'Seu valor de venda será de R$ ' + product50;
+            } else {
+            document.getElementById('idResultado').value = 'Seu valor de venda será de R$ ' + product35;
+        }
+    }
+    </script>
+</body>
+</html>
