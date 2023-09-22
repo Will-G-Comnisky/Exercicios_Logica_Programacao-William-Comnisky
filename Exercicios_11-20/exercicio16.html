@@ -42,6 +42,7 @@
         <br><br>
         <label for="operador">Informe o operador aritmético: </label>
         <br><br>
+
         <input type="radio" value="soma" name="operador" id="idSoma">
         <label for="soma" class="operadores">  + </label>
         <br><br>
@@ -54,6 +55,13 @@
         <input type="radio" value="divisao" name="operador" id="idDivisao">
         <label for="divisao" class="operadores">  / </label>
         <br><br>
+
+        <!-- É possível utilizar select com option também, exemplo:
+        <select name= "nmOperacao" id="idOperacao">
+            <option value= '*'> Multiplicação </option> 
+        </select>
+        -->
+
         <input type="button" value="Verificar" onclick="verificar()">
         <br><br>
         <output type="text" name="resultado" id="idResultado" ></output>
@@ -68,6 +76,20 @@
             let subtracao = document.getElementById('idSubtracao').checked;
             let multiplicacao = document.getElementById('idMultiplicar').checked;
             let divisao = document.getElementById('idDivisao').checked;
+
+            /* É possível fazer com switch case tbm, por exemplo:
+            switch (operacao) {
+                case '*':
+                    resultado = num1 * num2;
+                    break;
+                case '+':
+                    resultado = num1 + num2;
+                    break;
+                default:
+                    break;
+            }
+            */
+
 
             if (soma) {
                 document.getElementById('idResultado').innerHTML = 'O resultado é: ' + Number(num1 + num2);
