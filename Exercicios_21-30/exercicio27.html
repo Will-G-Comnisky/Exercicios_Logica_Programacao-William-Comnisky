@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 27</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #aluno1 {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 300px;
+            text-align: center;
+        }
+
+
+    </style>
+
+    <div id="aluno1">
+
+        <h2> Informe seus dados e aproveite a promoção: </h2>
+        <label for="idNome"> Nome: </label>
+        <input type="text" name="nome" id="idNome">
+        <br><br>
+        <label for="idSexo" class="labelSexo"> Sexo: </label>
+        <br><br>
+        <input class="input-radio" type="radio" name="sexo" id="idSexoFem" checked>
+        <label for="idSexoFem"> Feminino </label>
+        <br><br>
+        <input class="input-radio" type="radio" name="sexo" id="idSexoMasc">
+        <label for="idSexoMasc"> Masculino </label>
+        <br><br>
+        <input class="input-radio" type="radio" name="sexo" id="idSexoLGBT">
+        <label for="idSexoLGBT"> Outro (LGBT) </label>
+        <br><br>
+        <label for="idCompras"> Valor em compras: </label>
+        <input type="number" name="compras" id="idCompras">
+        <br><br>
+
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+
+
+    <script>
+
+        const descFem = 0.87
+        const descMasc = 0.95
+
+
+        const verificar = () => {
+
+            let compras = parseFloat(document.getElementById('idCompras').value);
+            let feminino = document.getElementById('idSexoFem').checked;
+            let masculino = document.getElementById('idSexoMasc').checked;
+            let LGBT = document.getElementById('idSexoLGBT').checked;
+            let name = document.getElementById('idNome').value;
+
+            if (feminino) {
+                document.getElementById('idResultado').innerHTML = 'Você possui 13% de desconto ' + name + '! Suas compras resultam em: ' + parseFloat(compras * descFem).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            } else if (masculino) {
+                document.getElementById('idResultado').innerHTML = 'Você possui 5% de desconto ' + name + '! Suas compras resultam em: ' + parseFloat(compras * descMasc).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            } else {
+                document.getElementById('idResultado').innerHTML = 'Verificar com o atendimento seu desconto!'
+            }
+
+
+        }
+
+    </script>
+</body>
+</html>

@@ -42,18 +42,28 @@
         const verificar = () => {
 
             let anoNascimento = Number(document.getElementById('idNascimento').value);
-            let alistamento = (2023 - anoNascimento);
+            let alistamento = 2023 - anoNascimento;
+            let passouAlistamento = alistamento - 18;
+            let faltaAlistamento = 18 - alistamento;
 
             if (alistamento == idadeAlistamento) {
-                document.querySelector('#idResultado').innerHTML = 'Você deve se alistar esse ano' ;
-                } else if (alistamento > idadeAlistamento) {
-                    document.querySelector('#idResultado').innerHTML = 'Você deve se apresentar, caso ainda não tenha feito isso' 
+                document.querySelector('#idResultado').innerHTML = 'Você deve se alistar esse ano';
+            } else if (alistamento > idadeAlistamento) {
+                if ((alistamento - idadeAlistamento) == 1) {
+                    document.querySelector('#idResultado').innerHTML = 'Você deve se apresentar, caso ainda não tenha feito isso, já se passou ' + passouAlistamento + ' ano';
                 } else {
-                    document.querySelector('#idResultado').innerHTML = 'Você ainda não possui a idade mínima para alistamento' 
+                    document.querySelector('#idResultado').innerHTML = 'Você deve se apresentar, caso ainda não tenha feito isso, já se passaram ' + passouAlistamento + ' anos';
+            }
+            } else {
+                if ((idadeAlistamento - alistamento) == 1) {
+                    document.querySelector('#idResultado').innerHTML = 'Você ainda não possui a idade mínima para alistamento, falta ' + faltaAlistamento + ' ano';
+                } else {
+                    document.querySelector('#idResultado').innerHTML = 'Você ainda não possui a idade mínima para alistamento, faltam ' + faltaAlistamento + ' anos';
                 }
             }
+        }
 
 
     </script>
 </body>
-</html>
+</html> 
