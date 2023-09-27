@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 26</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 300px;
+            text-align: center;
+        }      
+
+    </style>
+
+    <div id="formulario">
+
+        <h2> Alistamento militar: sua situação? </h2>
+        <label for="idNascimento"> Informe seu ano de nascimento: </label>
+        <input type="number" name="nascimento" id="idNascimento">
+        <br><br>
+
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+
+    <script>
+   
+        const idadeAlistamento = 18;
+
+        const verificar = () => {
+
+            let anoNascimento = Number(document.getElementById('idNascimento').value);
+            let alistamento = (2023 - anoNascimento);
+
+            if (alistamento == idadeAlistamento) {
+                document.querySelector('#idResultado').innerHTML = 'Você deve se alistar esse ano' ;
+                } else if (alistamento > idadeAlistamento) {
+                    document.querySelector('#idResultado').innerHTML = 'Você deve se apresentar, caso ainda não tenha feito isso' 
+                } else {
+                    document.querySelector('#idResultado').innerHTML = 'Você ainda não possui a idade mínima para alistamento' 
+                }
+            }
+
+
+    </script>
+</body>
+</html>
