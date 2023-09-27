@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 23</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #aluno1 {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 300px;
+            text-align: center;
+        }
+    </style>
+
+    <div id="aluno1">
+
+        <h2> Informe seu nome e notas: </h2>
+        <label for="idNome"> Nome: </label>
+        <input type="text" name="nome" id="idNome">
+        <br><br>
+        <label for="idNota1"> Nota 1: </label>
+        <input type="number" name="nota1" id="idNota1" min="0" max="10" step="0.01">
+        <br><br>
+        <label for="idNota2"> Nota 2: </label>
+        <input type="number" name="nota2" id="idNota2" min="0" max="10" step="0.01">
+        <br><br>
+
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+
+
+    <script>
+   
+        const aproveitamento = 7;
+
+        const verificar = () => {
+
+            let nome = document.querySelector('#idNome').value;
+            let nota1 = parseFloat(document.querySelector('#idNota1').value);
+            let nota2 = parseFloat(document.querySelector('#idNota2').value);
+            let media = (nota1 + nota2) / 2;
+
+            if (media >= aproveitamento) {
+                document.querySelector('#idResultado').innerHTML = 'Parabéns ' + nome + '! Você foi aprovado! Sua média é: ' + media; ;
+                } else {
+                    document.querySelector('#idResultado').innerHTML = 'Sua nota foi abaixo de 7.0, você está em recuperação ' + nome;
+                }
+            }
+
+
+    </script>
+</body>
+</html>
