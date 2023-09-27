@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 21</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+    <div>
+
+        <h2> Verificando se você foi multado </h2>
+        <label for="idVelocidade"> Informe sua velocidade com o carro em Km/H: </label>
+        <input type="number" name="velocidade" id="idVelocidade">
+        <br><br>
+
+        <input type="button" value="Verificar" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+
+    <script>
+   
+        const limiteVelocidade = 80;
+
+        const verificar = () => {
+
+            let velocidade = Number(document.getElementById('idVelocidade').value);
+            let multa = (velocidade - limiteVelocidade) * 5;
+
+            if (velocidade > limiteVelocidade) {
+                document.querySelector('#idResultado').innerHTML = 'Excesso de velocidade! Sua multa é de: R$ ' + multa;
+                } else {
+                    document.querySelector('#idResultado').innerHTML = 'Sua velocidade está dentro do limite'
+                }
+            }
+
+
+
+
+    </script>
+</body>
+</html>
