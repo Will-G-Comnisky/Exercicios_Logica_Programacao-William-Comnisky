@@ -55,10 +55,10 @@
 
             if (reta1 == 0 || reta2 == 0 || reta3 == 0) {
                 document.getElementById('idResultado').innerHTML = 'Não é possível formar triângulo somente com duas retas ou menos'
-            } else if  (reta1 < (reta2 + reta3) || reta2 < (reta1 + reta3) || reta3 < (reta1 + reta2) ) {
-                document.getElementById('idResultado').innerHTML = 'É possível formar triângulo!';
+            } else if  (reta1 > (reta2 + reta3) || reta2 > (reta1 + reta3) || reta3 > (reta1 + reta2) ) {
+                document.getElementById('idResultado').innerHTML = 'Não é possível formar triângulo!';
             } else {
-                document.getElementById('idResultado').innerHTML = 'Não é possível formar triângulo!'
+                document.getElementById('idResultado').innerHTML = 'É possível formar triângulo!'
             }
         }
 

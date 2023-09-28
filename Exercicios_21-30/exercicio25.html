@@ -40,7 +40,7 @@
 
             year = document.getElementById('idYear').value;
 
-            if (year % 4 == 0) {
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
                 document.querySelector('#idResultado').innerHTML = 'O ano é bissexto!' ;
                 } else {
                     document.querySelector('#idResultado').innerHTML = 'O ano não é bissexto!'
