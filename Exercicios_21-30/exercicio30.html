@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 30</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #aluno1 {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 300px;
+            text-align: center;
+        }
+    </style>
+
+    <div id="aluno1">
+
+        <h2> Calculando seu IMC: </h2>
+
+        <label for="idPeso"> Informe seu peso (kg): </label>
+        <input type="number" name="peso" id="idPeso" min="0" step="0.01">
+        <br><br>
+        <label for="idAltura"> Informe sua altura (cm): </label>
+        <input type="number" name="altura" id="idAltura" min="0" step="0.01">
+        <br><br>
+
+        <input type="button" value="Calcular" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+        
+    </div>
+
+
+
+    <script>
+
+      
+   
+
+        const verificar = () => {
+            let peso = parseFloat(document.getElementById('idPeso').value);
+            let altura = parseFloat(document.getElementById('idAltura').value);
+            let alturaMetros = parseFloat(altura/100);
+            let IMC = parseFloat(peso / (alturaMetros ** 2).toFixed(2));
+
+
+            if (IMC < 18.5) {
+                document.getElementById('idResultado').innerHTML = 'Abaixo do peso';
+            } else if  (18.5 <= IMC <= 25 ) {
+                document.getElementById('idResultado').innerHTML = 'Peso ideal';
+            } else if (25 < IMC <= 30 ) {
+                document.getElementById('idResultado').innerHTML = 'Sobrepeso';
+            } else if (30 < IMC <= 40 ) {
+                document.getElementById('idResultado').innerHTML = 'Obesidade';
+            } else if (40 < IMC) {
+                document.getElementById('idResultado').innerHTML = 'Obesidade mórbida';
+            } else {
+                document.getElementById('idResultado').innerHTML = 'Há algum dado incorreto. Não foi possível calcular';
+            }
+        }
+
+
+    </script>
+</body>
+</html>
