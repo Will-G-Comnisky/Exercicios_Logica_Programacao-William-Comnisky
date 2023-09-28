@@ -48,16 +48,17 @@
             let peso = parseFloat(document.getElementById('idPeso').value);
             let altura = parseFloat(document.getElementById('idAltura').value);
             let alturaMetros = parseFloat(altura/100);
-            let IMC = parseFloat(peso / (alturaMetros ** 2).toFixed(2));
+            let IMC = Number(peso / Math.pow(alturaMetros, 2))
+            console.log(IMC);
 
 
             if (IMC < 18.5) {
                 document.getElementById('idResultado').innerHTML = 'Abaixo do peso';
-            } else if  (18.5 <= IMC <= 25 ) {
+            } else if  (IMC < 25 ) {
                 document.getElementById('idResultado').innerHTML = 'Peso ideal';
-            } else if (25 < IMC <= 30 ) {
+            } else if (IMC < 30 ) {
                 document.getElementById('idResultado').innerHTML = 'Sobrepeso';
-            } else if (30 < IMC <= 40 ) {
+            } else if (IMC < 40 ) {
                 document.getElementById('idResultado').innerHTML = 'Obesidade';
             } else if (40 < IMC) {
                 document.getElementById('idResultado').innerHTML = 'Obesidade mórbida';
