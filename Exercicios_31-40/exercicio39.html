@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 39</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 300px;
+            text-align: center;
+        }
+    </style>
+
+    <div class="formulario">
+
+        <h2> Contador 38: </h2>
+
+        <label for="idNum1"> Informe o primeiro número inteiro inicial: </label>
+        <input type="number" name="num1" id="idNum1" min="0" step="1">
+        <br><br>
+        <label for="idNum2"> Informe o segundo número inteiro final: </label>
+        <input type="number" name="num2" id="idNum2" min="0" step="1">
+        <br><br>
+        <label for="idIncremento"> Informe o número inteiro de incremento: </label>
+        <input type="number" name="Incremento" id="idIncremento" min="0" step="1">
+        <br><br>
+
+
+        <input type="button" value="Calcular" onclick="verificar()">
+        <br><br>
+        <output type="text" name="resultado" id="idResultado" ></output>
+
+        
+    </div>
+
+
+    <script>
+
+const verificar = () => {
+        console.log('Inicio!');
+        let numInit = Number(document.getElementById('idNum1').value);
+        let numEnd = Number(document.getElementById('idNum2').value);
+        let incremento = Number(document.getElementById('idIncremento').value);
+        let resultado = '';
+
+        if (incremento < 0) {
+            incremento *= -1 ;
+        }
+
+        if (incremento == 0) {
+            alert('O valor de incremento não pode ser 0')
+        } else {
+// Verificar se numInit é maior que numEnd e ajustar a direção do loop
+            if (numInit < numEnd) {
+                for (let i = numInit; i <= numEnd; i += incremento) {
+                    console.log(i);
+                    resultado += i + ' ';
+                }
+            } else if (numInit > numEnd) {
+                for (let i = numInit; i >= numEnd; i -= incremento) {
+                console.log(i);
+                resultado += i + ' ';
+                }
+            } else {
+                resultado = 'Os números são iguais';
+            }
+        }
+
+
+
+        console.log(resultado);
+        document.getElementById('idResultado').innerHTML = resultado + ' finalizado';
+        console.log('Fim!');
+    }
+    </script>
+    
+</body>
+</html>
