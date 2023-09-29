@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 31</title>
+    <title>Exercicio 35</title>
 </head>
 <body>
 
@@ -25,25 +25,37 @@
 
         <h2> Contador: </h2>
 
-        <p>Inicio </p>
+        <label for="idNum"> Informe um número inteiro: </label>
+        <input type="number" name="num" id="idNum" min="0" step="1">
+        <br><br>
+
+        <input type="button" value="Calcular" onclick="verificar()">
+        <br><br>
         <output type="text" name="resultado" id="idResultado" ></output>
-        <p>Fim</p>
+
         
     </div>
 
 
     <script>
 
-        console.log('Inicio!');
-        let resultado = '';
+        const verificar = () => {
 
-        for (let i = 5; i <= 12 ; i++) {
+            console.log('Inicio!');
+            let number = document.getElementById('idNum').value
+            let resultado = '';
+
+            for (let i = 0; i <= number ; i++) {
             console.log(i)
             resultado += i + ' ';
         }
 
-        document.getElementById('idResultado').innerHTML = resultado;
+        document.getElementById('idResultado').innerHTML = 'Inicio: ' + resultado + 'e acabou!';
         console.log('Fim!');
+
+        }
+
+        
 
 
 
