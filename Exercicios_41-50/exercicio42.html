@@ -51,14 +51,23 @@
             let numEnd = Number(document.getElementById('idNum2').value);
             let resultado = '';
 
+            let isPrimo
+
             for (let i = numInit; i <= numEnd ; i++) {
-                console.log(i)
-                if (i % i == 0 && i / 1 == i) {
-                    resultado += i + ' ';
-                } else {
-                    resultado += ' '
+                isPrimo = true;
+                for (let i2 = 2; i2 < i; i2++ ) {
+                    
+                    //Verificando se i é divisivel por i2, logo não é primo.
+                    if (i % i2 == 0 && i != 2) {
+                        isPrimo = false;
+                    }
                 }
-                
+
+                if (isPrimo) {
+                    resultado += i + ' ';
+                }
+
+                console.log(i)              
         }
 
         console.log(resultado);
