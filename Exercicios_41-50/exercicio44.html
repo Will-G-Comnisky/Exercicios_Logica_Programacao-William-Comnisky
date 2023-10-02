@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 44</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 300px;
+            text-align: center;
+        }
+    </style>
+
+    <div class="formulario">
+
+        <h2> Algoritmo 44:</h2>
+        <h3>Os primeiros elementos da sequência Fibonacci</h3>
+
+
+        <input type="button" value="Verificar!" onclick="verificar()">
+        <br><br>
+        <output id="idOut"></output>
+
+        
+    </div>
+
+    
+   
+    
+
+    <script>
+
+        const verificar = () => {
+            let saida = document.getElementById('idOut');
+            let resultado = '';
+
+            let num1 = 0;
+            let num2 = 1;
+            let n = 10;
+            
+            if (n >= 1) {
+                resultado += num1 + ' ';
+            }
+            if (n >= 2) {
+                resultado += num2 + ' ';
+            }
+
+            for (let i = 3; i <= n; i++) {
+                let fiboNum = num1 + num2;
+                resultado += fiboNum + ' ';
+                num1 = num2;
+                num2 = fiboNum;
+            }
+
+
+
+        saida.value = resultado + ' ';
+        }
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+

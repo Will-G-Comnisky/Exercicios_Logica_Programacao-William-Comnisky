@@ -58,15 +58,16 @@
                 for (let i2 = 2; i2 < i; i2++ ) {
                     
                     //Verificando se i é divisivel por i2, logo não é primo.
-                    if (i % i2 == 0 && i != 2) {
+                    if (i % i2 == 0) {
                         isPrimo = false;
                     }
                 }
 
                 if (isPrimo) {
-                    resultado += i + ' ';
+                    if (i != 1) {
+                        resultado += i + ' ';
+                    }                    
                 }
-
                 console.log(i)              
         }
 
