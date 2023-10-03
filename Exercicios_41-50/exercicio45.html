@@ -26,12 +26,16 @@
         <h2> Algoritmo 45: </h2>
 
         <label for="idNum1"> Qual a quantidade de produtos? </label>
-        <input type="number" name="products" id="idProducts" min="1" step="1">
+        <input type="number" name="preco" id="idPreco" min="0" step="0.01">
         <br><br>
 
 
-        <input type="button" value="Gerar produtos" onclick="verificar()">
+        <input type="button" value="Registrar" onclick="registrar()">
         <br><br>
+        <input type="button" value="Relatório" onclick="relatorio()">
+        <br><br>
+        <output id="idOut1"></output>
+        <output id="idOut2"></output>
 
 
         
@@ -39,7 +43,26 @@
 
 
     <script>
-        let quantidade = document.querySelector('#idProducts').value;
+
+        var menorPreco = 99999999999;
+        var maiorPreco = 0;
+        
+        function registrar() {
+            let preco = Number(document.getElementById('idPreco').value)
+
+            if (preco > maiorPreco) {
+                maiorPreco = preco;
+            }
+
+            if (preco < maiorPreco) {
+                menorPreco = preco;
+            }
+        }
+
+        function relatorio () {
+            document.getElementById('idOut1').innerHTML = 'Menor preço: ' + menorPreco;
+            document.getElementById('idOut2').innerHTML = 'Maior preço: ' + maiorPreco;
+        }
 
 
 
