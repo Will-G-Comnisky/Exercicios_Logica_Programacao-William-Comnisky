@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 47</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 300px;
+            text-align: center;
+        }
+    </style>
+
+    <div class="formulario">
+
+        <h2> Algoritmo 47: </h2>
+
+        <label for="idNumApostado"> Faça sua aposta em um número de 0 a 10 (máx 3 tentativas): </label>
+        <input type="number" name="numApostado" id="idNumApostado" min="0" step="1">
+        <br><br>
+
+        <input type="button" value="Registrar" onclick="registrar()">
+        <br><br>
+
+        <label for="idOut"> Resultado:</label>
+        <br>
+        <output id="idOut"></output>
+        <br><br>
+
+    </div>
+
+    <script>
+        // Sortear um número entre 0 e 10
+
+        var numSorteado = parseInt(Math.random() * 11)
+        var contatdorTentativas = 0;
+        var message
+
+        
+        function registrar() {
+            // Adquirir o número apostado da tela
+            let numApostado = Number(document.getElementById('idNumApostado').value)
+            
+            // incrementar contatdor de tentativas
+            contatdorTentativas++;
+    
+            // testar a quantidade de vezes que foi jogado, se contador de tentativas > 3, então perde o jogo
+            if (contatdorTentativas <= 3) {
+                // Se contador de tentativas for menor que ou igual a 3, então testa o numero apostado contra o numero sorteado
+                if (numApostado == numSorteado) {
+                    message = 'Seu número foi sorteado! Parabéns!';
+
+                } else if (contatdorTentativas == 3) {
+                    message = 'Você perdeu.'
+
+                } else if (numApostado < numSorteado) {                    
+                    message = 'Seu número apostado é menor que o número sorteado.'
+
+                } else if (numApostado > numSorteado) {
+                    message = 'Seu número apostado é maior que o número sorteado.'
+
+                } else {
+                message = 'Perdeu o jogo.'
+            }
+            document.getElementById('idOut').value = message; 
+        }
+    }
+
+
+    </script>
+    
+</body>
+</html>

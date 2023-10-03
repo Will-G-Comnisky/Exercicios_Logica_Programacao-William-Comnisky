@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 46</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 300px;
+            text-align: center;
+        }
+    </style>
+
+    <div class="formulario">
+
+        <h2> Algoritmo 46: </h2>
+
+        <label for="idIdade"> Registre a idade: </label>
+        <input type="number" name="idade" id="idIdade" min="0" step="0.01">
+        <br><br>
+
+
+        <input type="button" value="Registrar" onclick="registrar()">
+        <br><br>
+
+        <label for="idOut1"> Média de idades:</label>
+        <output id="idOut1"></output>
+        <br><br>
+        <label for="idOut2">Quantidade de pessoas maiores que 18 anos:</label>
+        <output id="idOut2"></output>
+        <br><br>
+        <label for="idOut3">Quantidade de pessoas menores que 5 anos:</label>
+        <output id="idOut3"></output>
+        <br><br>
+        <label for="idOut4">Pessoa com maior idade do grupo:</label>
+        <output id="idOut4"></output>
+        
+
+
+        
+    </div>
+
+
+    <script>
+
+        var idadeInformada 
+        var accIdade = 0; // acumulador de idade
+        var qtdIdades = 0;
+        var mediaIdades = 0;
+        var idadeMaior18 = 0;
+        var idadeMenor5 = 0;
+        var maiorIdade = 0;
+
+        
+        function registrar() {
+            // Entrada: Varias idades a partir de um input
+            // Processamento: 1 - Adquirir idade digitada. 
+            idadeInformada = Number(document.getElementById('idIdade').value);
+            //2 - Acumular idade (somatória de idades).
+            accIdade += idadeInformada; 
+            //3 - Incrementar qtd de idades
+            qtdIdades++
+            // 4 - Calcular média de idades. 
+            mediaIdades = Number(accIdade / qtdIdades);
+            document.getElementById('idOut1').value = mediaIdades;
+            // 5 - Verificar quantas idades são maiores que 18. Quando for, incrementar contador de idades +18.
+            if (idadeInformada > 18) {
+                idadeMaior18++
+                document.getElementById('idOut2').value = Number(idadeMaior18);
+            } 
+            // 6 - Verificar se a idade registrada é menor que 5. Quando for, incrementar contador de idades -5.
+            if (idadeInformada < 5) {
+                idadeMenor5++
+                document.getElementById('idOut3').value = Number(idadeMenor5);
+            } 
+            // 7 - Descobrir se a idade registrada é a maior idade já informada.
+            if (idadeInformada > maiorIdade) {
+                maiorIdade = idadeInformada;
+                document.getElementById('idOut4').value = maiorIdade;
+            }
+        }
+
+
+
+
+    </script>
+    
+</body>
+</html>
