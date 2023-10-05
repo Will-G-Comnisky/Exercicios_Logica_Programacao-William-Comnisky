@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 56</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+    </style>
+
+<div class="formulario">
+
+    <h2> Algoritmo 56: </h2>
+
+    <label for="idNames"> Registre o nome: </label>
+    <input type="text" name="names" id="idNames">
+    <br><br>
+    
+    <input type="button" value="Gerar" name="inserirNome" id="idInserirNome" onclick="registrar()">
+    <br><br>
+    <output id="idOut"></output>
+
+</div>
+
+    <script>
+
+        var nomes = [];
+        var nomeInformado
+        var nomesInvertido
+
+
+        function registrar() {
+
+            // Entrada: Varios nomes a partir de um input
+            // Processamento: 1 - Adquirir nome digitado. 
+            nomeInformado = document.getElementById('idNames').value;
+            // Processamento: 2 - Inserir o nome digitado no array:
+            nomes.push(nomeInformado);
+            // Processamento: 3 - Resetar o input 
+            document.getElementById('idNames').value = "";
+            // Processamento: 4 - Criando o array na ordem invertida:
+            var nomesInvertido = nomes.reverse();
+            // Processamento: 5 - Apresentar na saída:
+            document.getElementById('idOut').value = nomesInvertido;
+            
+            }
+        
+            console.table(nomesInvetido);
+
+
+
+
+    </script>
+</body>
+</html>
