@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 58</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+    </style>
+
+<div class="formulario">
+
+    <h2> Algoritmo 58: </h2>
+
+
+    <label for="idNumero">Numero:</label>
+    <input type="number" id="idNumero" name="nmNumero"> <br/><br/>
+
+
+    <input type="button" value="Buscar chave" onclick="buscar()">
+
+    <br><br>
+    <output id="idOut"></output>
+
+</div>
+
+    <script>
+        var numero = [];
+
+        for (let i = 0; i < 30; i++) {
+            numero.push(parseInt(Math.random() * 15))
+        }
+
+        function buscar() {
+            let msn = "";
+            let contChave = 0;
+            let chave = Number(document.getElementById('idNumero').value);
+            for (let i = 0; i < numero.length; i++) {
+                const num = numero[i];
+                if (num == chave) {
+                    msn += i + " ";
+                    contChave++;
+                }            
+            }
+
+            if (msn == "") {
+                msn = "A chave não aparece em nenhuma posição!";
+            }
+            document.getElementById('idOut').innerText = msn + "Posições em que a chave aparece: " + msn + "\n E a chave aparece " + contChave + " vezes.";
+
+}
+</script>
+        
