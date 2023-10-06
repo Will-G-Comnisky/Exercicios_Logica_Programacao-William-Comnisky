@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 62</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+        input {
+            margin-top: 4px;
+        }
+
+    </style>
+
+<div class="formulario">
+
+    <h2> Algoritmo 62: </h2>
+
+
+    <label for="idNome">Nome:</label>
+    <input type="text" id="idNome" name="nmNome"> 
+    <br/><br/>
+
+    <label for="idIdade">Idade:</label>
+    <input type="number" id="idIdade" name="nmIdade"> 
+    <br/><br/>
+
+
+    <input type="button" value="Registrar" onclick="registrar()">
+    <br><br>
+
+    <input type="button" value="Exibir Menores de 18" onclick="exibir()">
+    <br><br>
+    <output id="idExibir"></output>
+
+
+</div>
+
+<script>
+    var nomes = [];
+    var idades = [];
+    var contador = 0;
+
+    function registrar() {
+            contador++;
+            if (contador < 10) {
+                nomes.push(document.getElementById('idNome').value);
+                document.getElementById('idNome').value = '';
+                idades.push(Number(document.getElementById('idIdade').value));
+                document.getElementById('idIdade').value = '';
+            } else {
+                document.getElementById('idExibir').value = 'Você atingiu o número máximo de pessoas'
+            }
+            
+        }
+
+        function exibir() {
+            let pessoas = '';
+            for (let i = 0; i < 9; i++) {
+//Fazendo a condição de um elemento no array idade ser menor que 18:
+                if (idades[i] < 18) {
+// Adicionando os dados dos dois arrays numa variavel inicialmente vazia:
+                    pessoas += nomes[i] + ' - ' + idades[i] + '\n ';
+                }
+            }
+// Exibindo essas pessoas(dados dos dois arrays) na tela caso haja:
+            if (pessoas === '') {
+                document.getElementById('idExibir').value = 'Não há pessoas menores de 18 anos.'
+            } else {
+                document.getElementById('idExibir').innerText = pessoas + '\n ';
+            }
+        }
+
+</script>
