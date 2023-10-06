@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 61</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+        input {
+            margin-top: 4px;
+        }
+
+    </style>
+
+<div class="formulario">
+
+    <h2> Algoritmo 61: </h2>
+
+
+    <label for="idNota">Nota:</label>
+    <input type="number" id="idNota" name="nmNota" max="10" min="0" step="0.01"> <br/><br/>
+
+
+    <input type="button" value="Registrar Nota" onclick="registrar()">
+    <br><br>
+
+    <input type="button" value="Exibir Notas Registradas" onclick="exibir()">
+    <br><br>
+    <output id="idExibirNotas"></output>
+
+    
+    <input type="button" value="Média da turma" onclick="calcMedia()">
+    <br><br>
+    <output id="idExibirMedia"></output>
+
+
+    <input type="button" value="Acima da média" onclick="calcAcimaMd()">
+    <br><br>
+    <output id="idExibirAcimaMd"></output>
+
+
+    <input type="button" value="Maior Nota" onclick="calcMaiorNota()">
+    <br><br>
+    <output id="idMaiorNota"></output>
+
+
+    <input type="button" value="Posições Maior Nota" onclick="checarPos()">
+    <br><br>
+    <output id="idPosicoes"></output>
+
+</div>
+
+<script>
+    var notas = [];
+
+    function registrar() {
+            notas.push(parseFloat(document.getElementById('idNota').value));
+            document.getElementById('idNota').value = '';
+        }
+
+        function exibir() {
+            document.getElementById('idExibirNotas').innerText = notas + '\n ';
+        }
+
+        function calcMedia () {
+            // Uma variável para armazenar a soma dos elementos
+            soma = 0;
+            // Um loop para somar os elementos do array
+            for (let i = 0; i < notas.length; i++) {
+                soma += notas[i];
+            }
+            // Calculando a média dividindo a soma pelo número de elementos
+            let media = soma / notas.length;
+            document.getElementById('idExibirMedia').innerText = 'A média dos alunos da sala é: ' + media + '\n ';
+        }
+        function calcAcimaMd () {
+
+            let contador = 0;
+
+            for (let i = 0; i < notas.length; i++) {
+                if (notas[i] >= 7) {
+                    contador++;
+                }
+            }
+            document.getElementById('idExibirAcimaMd').innerHTML = 'Temos esta quantidade de notas acima da média: ' + contador;
+        }
+        function calcMaiorNota () {
+            let maiorNota = notas[0];
+
+            for (let i = 1; i < notas.length; i++) {
+                if (notas[i] > maiorNota) {
+                    maiorNota = notas[i];
+                }
+            }
+            document.getElementById('idMaiorNota').innerText = 'A maior nota da turma é: ' + maiorNota + "\n ";
+        }
+        function checarPos () {
+            // Copiamos a lógica da função anterior, e adicionamos uma variavel >posicaoMaiorNota< 
+            let maiorNota = notas[0];
+            let posicoesMaiorNota = [0];
+            for (let i = 1; i < notas.length; i++) {
+                if (notas[i] > maiorNota) {
+                    maiorNota = notas[i];
+                    posicoesMaiorNota = [i];
+                } else if (notas[i] == maiorNota) {
+                    posicoesMaiorNota.push(i);
+                }
+            }
+            //Agora neste caso, ele confere a maior nota, igual a função anterior, mas também salva a posição daquela maior nota na variavel
+            document.getElementById('idPosicoes').innerHTML = 'A maior nota (' + maiorNota + ') aparece nas posições: ' + posicoesMaiorNota.join(', ');
+        }
+
+
+
+
+</script>
+        
