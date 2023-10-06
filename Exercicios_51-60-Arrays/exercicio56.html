@@ -39,7 +39,7 @@
 
         var nomes = [];
         var nomeInformado
-        var nomesInvertido
+        var nomesInvertido 
 
 
         function registrar() {
@@ -58,7 +58,34 @@
             
             }
         
-            console.table(nomesInvetido);
+        /* 
+        Resolução do professor:
+
+        <label for="idNome">Nome:</label>
+        <input type="text" id="idNome" name="nmNome"> <br/><br/>
+
+        <input type="button" value="salvar" onclick="registrar()">
+        <input type="button" value="exibir" onclick="exibirInv()">
+
+        SCRIPT:
+
+        var nome = [];
+
+        function registrar() {
+            nome.push(document.getElementById('idNome').value);
+            document.getElementById('idNome').value = '';
+        }
+
+        function exibirInv() {
+            let nomes = "";
+            for (let i = (nome.length - 1); i >= 0; i--) {
+                console.log(nome[i])
+                nomes += nome[i] + ';'
+            }
+        }
+        
+        */ 
+
 
 
 
