@@ -42,18 +42,24 @@
 </div>
 
 <script>
+    // Declarando o array com temperatuas pré definidas
     var temperaturas = [5, 7, 10, 12, 15, 18, 22, 25, 27, 30, 32];
     
 
         function exibir() {
+
             let dia = Number(document.getElementById("idDia").value);
+            // Declarando a variavel soma, que vai ser justamente a soma de todos os valores do array temperaturas 
             let soma = 0;
             for (let i = 0; i < temperaturas.length; i++) {
                 soma += temperaturas[i];
                 }
+            // Calculando a media:
             let media = soma / temperaturas.length;
 
+            // Se o dia informado for maior que 0 e menor que o nº de elementos contidos no array temperaturas, faz:
             if (dia > 0 && dia < temperaturas.length) {
+                // E se também, o dia informado, onde o dia vai ser a posição de uma temperatura >temperatura[dia]<, for maior ou menor que a média:
                 if (temperaturas[dia] > media) {
                     document.getElementById('idOut').innerText = 'A temperatura do dia ' + dia + ' estava acima da média!'
                 } else if (temperaturas[dia] < media) {

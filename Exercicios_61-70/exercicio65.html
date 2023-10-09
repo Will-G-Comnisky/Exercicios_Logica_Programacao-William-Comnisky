@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 65</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+        input {
+            margin-top: 4px;
+        }
+
+    </style>
+
+<div class="formulario">
+
+    <h2> Algoritmo 65: </h2>
+
+
+    <label for="idNum">Números a registrar:</label>
+    <input type="number" id="idNum" name="nmNum"> 
+    <br/><br/>
+
+
+    <input type="button" value="Registrar" onclick="registrar()">
+    <br><br>
+
+    <input type="button" value="Exibir (Menor -> Maior)" onclick="exibirCresc()">
+    <br><br>
+    <input type="button" value="Exibir (Maior -> Menor)" onclick="exibirDecresc()">
+    <br><br>
+    <output id="idExibir"></output>
+
+
+</div>
+
+<script>
+    var numeros = [];
+    var contador = 0;
+
+    function registrar() {
+            if (contador < 10) {
+                numeros.push(Number(document.getElementById('idNum').value));
+                document.getElementById('idNum').value = '';
+                contador++;
+            } else {
+                document.getElementById('idExibir').value = 'Você atingiu o número máximo de valores'
+            }           
+        }
+
+        function exibirCresc() {
+            for (let i = 0; i < numeros.length; i++) {
+                // Definindo que o menor número que por enquanto será i, o primeiro valor do array
+                let menorNum = i;
+                for (let z = i + 1; z < numeros.length; z++) {
+                    //z será o valor do i + 1, e comparamos ele com o menor valor que já tinhamos que seria o i
+                    if (numeros[z] < numeros[menorNum]) {
+                        // Se for encontrado um valor menor que o atual, agora aquele valor será o menor entre todos.
+                        menorNum = z;
+                    }
+                }
+                // Agora para ordenarmos corretamente depois da filtragem:
+                if (menorNum !== i) {
+                    // Garantindo que o menor valor é diferente do indice atual, para não trocar o elemento por si mesmo
+                    let number = numeros[i];
+                    // Armazenamos o valor do elemento atual do indice do array na variavel number
+                    numeros[i] = numeros[menorNum];
+                    // Agora substituimos o valor do indice i no array pelo menor valor
+                    numeros[menorNum] = number;
+                    // E garantimos que o valor orginal do elemento menor vai ser inserido na posicação do elemetno que estava antes, no caso em i.
+                }
+            }
+            document.getElementById('idExibir').value = numeros;
+        }
+
+        function exibirDecresc() {
+            for (let i = 0; i < numeros.length; i++) {
+                let maiorNum = i;
+                for (let z = i + 1; z < numeros.length; z++) {
+                    if (numeros[z] > numeros[maiorNum]) {
+                        maiorNum = z;
+                    }
+                }
+                if (maiorNum !== i) {
+                    let number = numeros[i];
+                    numeros[i] = numeros[maiorNum];
+                    numeros[maiorNum] = number;
+                }
+            }
+            document.getElementById('idExibir').value = numeros;
+        }
+
+</script>
