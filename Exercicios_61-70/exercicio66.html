@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 65</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            margin: 0px auto;
+            text-align: center;
+            max-width: 100vw;
+        }
+        .formulario-container {
+        display: flex;
+        justify-content: space-between; /* Isso distribuirá as divs lado a lado */
+        max-width: 1200px; /* Define a largura máxima para as divs ficarem centralizadas */
+        margin: 0px auto;
+    }
+        .formulario {
+            border: 2px solid black;
+            padding: 8px;
+            margin: 16px auto;
+            width: 400px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center ;
+            flex-direction: column;
+        }
+        input {
+            margin-top: 4px;
+            max-width: 200px;
+        }
+
+    </style>
+
+<h1> Algoritmo 65: </h2>
+
+    <div class="formulario-container">
+        <div class="formulario">
+
+            <label for="idNome">Nome do(a) aluno(a):</label>
+            <input type="text" id="idNome" name="nmNome"> 
+            <br/><br/>
+            <label for="idEndereco">Endereço:</label>
+            <input type="text" id="idEndereco" name="nmEndereco"> 
+            <br/><br/>
+            <label for="idNomeMae">Nome da mãe do(a) aluno(a):</label>
+            <input type="text" id="idNomeMae" name="nmNomeMae"> 
+            <br/><br/>
+            <label for="idNomePai">Nome do pai do(a) aluno(a):</label>
+            <input type="text" id="idNomePai" name="nmNomePai"> 
+            <br/><br/>
+            <label for="idTel">Telefone para contato:</label>
+            <input type="tel" id="idTel" name="nmTel"> 
+            <br/><br/>
+        
+            <input type="button" value="Registrar" onclick="registrarEstudante()">
+            <br><br>
+        
+        </div>
+        
+        <div class="formulario">
+        
+            <label for="idNota1">Nota 1:</label>
+            <input type="number" id="idNota1" name="nmNota1"> 
+            <br/><br/>
+            <label for="idNota2">Nota 2:</label>
+            <input type="number" id="idNota2" name="nmNota2"> 
+            <br/><br/>
+            <label for="idNota3">Nota 3:</label>
+            <input type="number" id="idNota3" name="nmNota3"> 
+            <br/><br/>
+            <label for="idNota4">Nota 4:</label>
+            <input type="number" id="idNota4" name="nmNota4"> 
+            <br/><br/>
+                    
+            <input type="button" value="Registrar" onclick="registrarNotas()">
+            <br><br>
+    
+        </div>
+        <div class="formulario">
+            <input type="button" value="Consultar" onclick="consultar()">
+            <br><br>
+            <output id="idCadastro"></output>
+        </div>
+    </div>
+
+
+<script>
+    var nomes = [];
+    var enderecos = [];
+    var nomesMae = [];
+    var nomesPai = [];
+    var telPais = [];
+    var notas1 = [];
+    var notas2 = [];
+    var notas3 = [];
+    var notas4 = [];
+
+
+    function registrarEstudante() {
+        nomes.push(document.getElementById('idNome').value);
+        document.getElementById('idNome').value = '';
+        enderecos.push(document.getElementById('idEndereco').value);
+        document.getElementById('idEndereco').value = '';
+        nomesMae.push(document.getElementById('idNomeMae').value);
+        document.getElementById('idNomeMae').value = '';
+        nomesPai.push(document.getElementById('idNomePai').value);
+        document.getElementById('idNomePai').value = '';
+        telPais.push(document.getElementById('idTel').value);
+        document.getElementById('idTel').value = '';
+
+        for (let i = 0; i < nomes.length; i++) {
+            const nome = nomes[i];
+            const idade = enderecos[i];
+            console.log(`${nome} tem ${idade} anos.`);
+}
+    }
+
+    function registrarNotas() {
+
+    }
+
+    function consultar() {
+
+    }
+
+
+</script>
