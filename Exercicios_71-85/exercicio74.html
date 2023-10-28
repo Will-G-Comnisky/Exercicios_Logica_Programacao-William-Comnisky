@@ -98,17 +98,17 @@
 
         function exibir() {
 
-            let wages = funcionarios.salario.filter(function(wage) {
-                return wage > 5000
+            let wages = funcionarios.filter(function(funcionario) {
+                return funcionario.salario > 5000;
             });
 
-            let above5K = funcionarios.nome.map(function(nome, index) { // Utilizando o array nomes para aplicar o map, visto que é um array em comum para conectar os outros dois (sexo e salarios)
-                if (funcionarios.sexo[index] == 'feminino' && wages.includes(funcionarios.salarios[index])) { // Verficiando no array sexo as posições que sejam feminino E se o salário de uma pessoa, que está no array salarios, está presente no array wages (salaios acima de 5k)
-                    return 'Nome: ' + nome + ' - Sexo: ' + funcionarios.sexo[index] + ' - Salário: R$ ' + funcionarios.salario[index];
-                }
+            let above5K = wages.filter(function(funcionario) { // Utilizando o array nomes para aplicar o map, visto que é um array em comum para conectar os outros dois (sexo e salarios)
+                return funcionario.sexo == 'feminino';  // Verficiando no array sexo as posições que sejam feminino E se o salário de uma pessoa, que está no array salarios, está presente no array wages (salaios acima de 5k)       
             });
-
-            above5K = above5K.filter(item => item !== undefined); // Caso não haja mulheres com salários acima de 5k, esse trecho verifica se o item NÃO É undefined para retornar valor, caso for undefined(salario>5k), ai ele não retorna
+            
+            above5K = above5K.map(function(funcionario) {
+                return 'Nome: ' + funcionario.nome + ' - Sexo: ' + funcionario.sexo + ' - Salário: R$ ' + funcionario.salario;
+            }); // Caso não haja mulheres com salários acima de 5k, esse trecho verifica se o item NÃO É undefined para retornar valor, caso for undefined(salario>5k), ai ele não retorna
             
             if (above5K.length === 0) {
                 document.getElementById('idExibir').innerText = 'Nenhuma mulher com salário superior a 5000.';
