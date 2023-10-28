@@ -98,15 +98,15 @@
                 return wage > 5000
             });
 
-            let sexFem = sexo.filter(function(sexo) {
-                return sexo == 'feminino'
+            let above5K = nomes.map(function(nome, index) { // Utilizando o array nomes para aplicar o map, visto que é um array em comum para conectar os outros dois (sexo e salarios)
+                if (sexo[index] == 'feminino' && wages.includes(salarios[index])) { // Verficiando no array sexo as posições que sejam feminino E se o salário de uma pessoa, que está no array salarios, está presente no array wages (salaios acima de 5k)
+                    return 'Nome: ' + nome + ' - Sexo: ' + sexo[index] + ' - Salário: R$ ' + salarios[index];
+                }
             });
 
-            let above5K = salarios.map(function(salario, index) {
-                return 'Nome: ' + nomes[index] + ' - Sexo: ' + sexFem + ' - Salário: R$ ' + wages;
-            });
+            above5K = above5K.filter(item => item !== undefined); // Caso não haja mulheres com salários acima de 5k, esse trecho verifica se o item NÃO É undefined para retornar valor, caso for undefined(salario>5k), ai ele não retorna
             
-            if (above5K == '' || above5K == 0) {
+            if (above5K.length === 0) {
                 document.getElementById('idExibir').innerText = 'Nenhuma mulher com salário superior a 5000.';
             } else {
                 document.getElementById('idExibir').innerText = above5K.join('\n');
