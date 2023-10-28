@@ -98,17 +98,17 @@
 
         function exibir() {
 
-            let wages = funcionarios.filter(function(funcionario) {
-                return funcionario.salario > 5000;
+            let wages = funcionarios.filter(function(funcionario) { // filtrando o array funcionarios, com o objeto funcionario como parametro
+                return funcionario.salario > 5000; // identificando se o valor no atributo salario do objeto funcionario é um valor acima de 5000
             });
 
-            let above5K = wages.filter(function(funcionario) { // Utilizando o array nomes para aplicar o map, visto que é um array em comum para conectar os outros dois (sexo e salarios)
-                return funcionario.sexo == 'feminino';  // Verficiando no array sexo as posições que sejam feminino E se o salário de uma pessoa, que está no array salarios, está presente no array wages (salaios acima de 5k)       
+            let above5K = wages.filter(function(funcionario) { // atribuindo a uma variavel o valor de wages (que seria os funcionarios com salario acima de 5k)
+                return funcionario.sexo == 'feminino'; // aqui filtramos pelo objeto, que possua o valor de 'feminino' no atributo "sexo",visto que o salario acima de 5k já está filtrado
             });
             
             above5K = above5K.map(function(funcionario) {
                 return 'Nome: ' + funcionario.nome + ' - Sexo: ' + funcionario.sexo + ' - Salário: R$ ' + funcionario.salario;
-            }); // Caso não haja mulheres com salários acima de 5k, esse trecho verifica se o item NÃO É undefined para retornar valor, caso for undefined(salario>5k), ai ele não retorna
+            }); // nesse caso, com as filtragens feitas, utilizamos do map para conseguir os dados que precisamos mostrar
             
             if (above5K.length === 0) {
                 document.getElementById('idExibir').innerText = 'Nenhuma mulher com salário superior a 5000.';
